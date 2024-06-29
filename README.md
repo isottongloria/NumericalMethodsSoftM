@@ -1,4 +1,13 @@
-# NumericalMethodsSoftM
+# Numerical Methods in Soft matter
+
+<h1 align="center">Numerical Methods in Soft Matter - PoD<br> University of Padua <br> 2023/2024</h1>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/62724611/166108149-7629a341-bbca-4a3e-8195-67f469a0cc08.png" height="150"/>
+   
+  <img src="https://user-images.githubusercontent.com/62724611/166108076-98afe0b7-802c-4970-a2d5-bbb997da759c.png" height="150"/>
+</p>
+
 In this repository, you will find the completed weekly exercises for the course of Numerical methods in Soft matter, academic Year 2023/2024 (prof. Orlandini, Locatelli, Baiesi)
 
 
