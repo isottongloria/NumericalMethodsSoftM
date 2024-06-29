@@ -1,0 +1,12 @@
+double Copy(double *u, double *w);
+double Dot(double *u, double *v);
+void Prod(double *u, double A, double *v);
+void Diff(double *u, double *v, double *w);
+void Sum(double *u, double *v, double *w);
+void Incr(double *u, double *du);
+void Decr(double *u, double *du);
+void Mean(double *u, double *v, double *w);
+double Mod2(double *u);
+double Mod(double *u);
+double Dist(double *u, double *v);
+void SetLen(double *u, double L);
