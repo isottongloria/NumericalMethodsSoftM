@@ -1,0 +1,43 @@
+# Initialization
+units lj
+dimension 3
+atom_style molecular
+bond_style      harmonic
+boundary p p p
+
+# Box definition and molecules initialization
+region simulation_box block -10 10 -10 10 -10 10
+create_box 2 simulation_box bond/types 1 extra/bond/per/atom 1
+molecule dumbell dumbell.mol
+create_atoms 0 random 100 678865 simulation_box mol dumbell 8751	
+
+# simulation settings
+mass 1 1
+mass 2 1
+bond_coeff 1 8.0 1.0
+
+# energy minimization
+minimize 1.0e-5 1.0e-7 1000 10000
+reset_timestep 0
+
+# velocity initialization
+velocity        all create 2 4928459 rot yes dist gaussian
+run             0
+velocity        all scale 2
+
+# Verlet solver
+fix mynve all nve
+
+# Add Nose-Hoover thermostat temp values = Tstart Tstop Tdamp
+#fix             nvt  all      nvt temp 2.0 2.0 0.1
+# fix brednesen thermostat   temp values = Tstart Tstop Tdamp
+fix berendsen all temp/berendsen 2.0 2.0 0.1
+
+# MSD calculation
+compute         MSD  all      msd
+
+# output trajectory and run
+thermo 1
+thermo_style custom step temp pe ke etotal press density c_MSD[1] c_MSD[2] c_MSD[3]
+dump mydmp all custom 10 dump.lammpstrj id type x y z vx vy vz
+run 100000

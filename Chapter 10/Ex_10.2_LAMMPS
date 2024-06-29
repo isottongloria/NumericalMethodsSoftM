@@ -1,0 +1,50 @@
+# 1) Initialization
+units lj
+dimension 3
+atom_style atomic
+pair_style lj/cut 1.1 
+boundary p p p
+
+# 2) System definition
+region simulation_box block -10 10 -10 10 -10 10
+create_box 1 simulation_box
+create_atoms 1 random 1600 341341 simulation_box
+
+# 3) Simulation settings
+mass 1 1
+pair_coeff 1 1 1.0 1.0
+
+# Generate random velocities from the Maxwell-Boltzmann distribution
+velocity all create 1 42 mom yes rot no dist gaussian
+
+# Scale velocities to achieve desired temperature (optional)
+# velocity all scale 1.0
+
+# 4) Visualization
+thermo 1
+thermo_style custom step temp pe ke etotal press density
+
+# 5) Run
+minimize        1.0e-4 1.0e-6 1000 10000
+
+# PART B - MOLECULAR DYNAMICS
+# 6) Output to file
+dump mydump all custom 50 Ex10.2_11.lammpstrj id type x y z vx vy vz
+
+# 7) Run
+fix mynve all nve
+#fix             mylgv all      langevin 1.0 1.0 0.1 1530917
+fix 2 all temp/rescale 1 1.0 1.0 0.001 1.0
+
+timestep 0.005
+run             5000
+
+
+# 8) Compute RDF
+#compute rdf all rdf 100 1 1
+#fix ave_rdf all ave/time 1 1 1 c_rdf[*] file rdf_profile.dat mode vector
+compute myRDF all rdf 200 cutoff 10
+#fix 1 all ave/time 1000 1 1000 c_myRDF[*] file tmp1.dat mode vector 
+fix ave_rdf all ave/time 1 1 1 c_myRDF[*] file Ex10.2_11_RDF.dat mode vector
+
+
