@@ -1,4 +1,3 @@
-# Numerical Methods in Soft matter
 
 <h1 align="center">Numerical Methods in Soft Matter - PoD<br> University of Padua <br> 2023/2024</h1>
 
@@ -42,8 +41,8 @@ In this repository, you will find the completed weekly exercises for the course 
 
 
 ---
-
+11.3 exercise gaussian polymer
 ![Demo GIF](https://github.com/isottongloria/NumericalMethodsSoftM/blob/main/rnd.gif)
-
+---
 ## Contact
 For more information, contact [gloria.isotton@studenti.unipd.it](mailto:gloria.isotton@studenti.unipd.it). Note that chapter 8-11 data and notebooks are missing due to space constraints. Enjoy soft matter and good luck!
