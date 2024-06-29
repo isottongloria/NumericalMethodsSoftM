@@ -1,1 +1,0 @@
-extern RngStream rngs;
