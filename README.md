@@ -43,9 +43,7 @@ In this repository, you will find the completed weekly exercises for the course 
 ---
 Gif from 11.3 exercise gaussian polymer.
 
-<p align="center">
 ![Demo GIF](https://github.com/isottongloria/NumericalMethodsSoftM/blob/main/rnd.gif)
-</p>
 
 ---
 ## Contact
